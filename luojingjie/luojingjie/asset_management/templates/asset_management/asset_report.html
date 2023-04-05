@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    资产报表 - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h1 class="my-4">资产报表</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>统计项</th>
+                <th>数量</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>总资产数量</td>
+                <td>{{ total_assets }}</td>
+            </tr>
+            <tr>
+                <td>已分配资产数量</td>
+                <td>{{ assigned_assets }}</td>
+            </tr>
+            <tr>
+                <td>已归还资产数量</td>
+                <td>{{ returned_assets }}</td>
+            </tr>
+            <tr>
+                <td>报废资产数量</td>
+                <td>{{ scrapped_assets }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

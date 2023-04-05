@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ asset.name }}</h2>
+  <p>{{ asset.description }}</p >
+  <p>Category: {{ asset.category }}</p >
+  < img src="{{ asset.image.url }}" alt="{{ asset.name }}" width="300" height="300">
+  <a href=" 'assets:asset_update' asset.id %}">Update</a>
+{% endblock %}

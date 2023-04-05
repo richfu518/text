@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Asset Logs</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Asset</th>
+        <th>User</th>
+        <th>Checkout Date</th>
+        <th>Return Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for log in logs %}
+        <tr>
+          <td>{{ log.asset }}</td>
+          <td>{{ log.user }}</td>
+          <td>{{ log.checkout_date }}</td>
+          <td>{{ log.return_date }}</td>
+          <td>
+            <a href=" 'assets:asset_log_edit' log.pk %}">Edit</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'assets:asset_log_create' %}">Add new log</a>
+{% endblock %}

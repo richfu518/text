@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>资产借出记录</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>资产</th>
+        <th>借用人</th>
+        <th>借出日期</th>
+        <th>归还日期</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lending in lendings %}
+        <tr>
+          <td>{{ lending.asset }}</td>
+          <td>{{ lending.borrower }}</td>
+          <td>{{ lending.date_borrowed }}</td>
+          <td>{{ lending.date_returned }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">没有资产借出记录</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href=" 'asset_lending' %}" class="btn btn-primary">借出资产</a>
+{% endblock %}

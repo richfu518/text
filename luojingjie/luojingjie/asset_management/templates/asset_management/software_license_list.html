@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>软件许可证列表</h2>
+  <a href=" 'assets:software_license_create' %}" class="btn btn-primary">添加新许可证</a>
+  <form method="get" class="search-form">
+    <input type="text" name="search" placeholder="搜索许可证..." value="{{ request.GET.search }}">
+    <button type="submit">搜索</button>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>软件名称</th>
+        <th>许可证密钥</th>
+        <th>购买日期</th>
+        <th>到期日期</th>
+        <th>供应商</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for license in licenses %}
+        <tr>
+          <td><a href=" 'software_license_detail' license.pk %}">{{ license.name }}</a></td>
+          <td>{{ license.license_key }}</td>
+          <td>{{ license.purchase_date }}</td>
+          <td>{{ license.expiration_date }}</td>
+          <td>{{ license.vendor }}</td>
+          <td>
+            <a href="{% url 'software_license_update' license.pk %}">编辑</a> |
+            <a href="{% url 'software_license_delete' license.pk %}">删除</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

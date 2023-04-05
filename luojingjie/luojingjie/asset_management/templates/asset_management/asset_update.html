@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>更新资产</h2>
+  <form method="post" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">更新</button>
+    <a href=" 'asset_list' %}" class="btn btn-secondary">返回</a>
+  </form>
+{% endblock %}

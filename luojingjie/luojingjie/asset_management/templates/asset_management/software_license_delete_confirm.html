@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>确认删除软件许可证</h2>
+  <p>您确定要删除 "{{ license.name }}" 吗？</p >
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">确认删除</button>
+    <a href=" 'software_license_list' %}">取消</a>
+  </form>
+{% endblock %}

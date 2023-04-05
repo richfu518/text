@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    分配资产 - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h1 class="my-4">分配资产：{{ asset.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">分配资产</button>
+    </form>
+{% endblock %}

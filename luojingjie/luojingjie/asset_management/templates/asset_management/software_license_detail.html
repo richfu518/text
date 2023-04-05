@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>软件许可证详细信息</h2>
+  <p>名称：{{ license.name }}</p >
+  <p>许可证密钥：{{ license.license_key }}</p >
+  <p>购买日期：{{ license.purchase_date }}</p >
+  <p>到期日期：{{ license.expiration_date }}</p >
+  <p>供应商：{{ license.vendor }}</p >
+
+  <h3>附件</h3>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">上传附件</button>
+  </form>
+  <ul>
+    {% for attachment in attachments %}
+      <li><a href=" " download>{{ attachment.file.name }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'software_license_list' %}">返回许可证列表</a>
+{% endblock %}
